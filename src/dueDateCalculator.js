@@ -35,14 +35,12 @@ class DueDateCalculator {
   _setNextWorkingDay(date) {
     const newDate = new Date(date.getTime());
     let newDateDayName;
-    let nextDayAmount = 0;
     do {
       newDate.setDate(newDate.getDate() + 1);
       newDateDayName = this.date.getDayName(newDate);
-      nextDayAmount++;
     } while(this.nonworkingDays.includes(newDateDayName))
 
-    return new Date(date.setDate(date.getDate() + nextDayAmount));
+    return newDate;
   }
 }
 
